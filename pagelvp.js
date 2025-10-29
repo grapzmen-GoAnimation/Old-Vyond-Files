@@ -1,4 +1,3 @@
-const fUtil = require('../misc/file');
 const stuff = require('./info');
 
 function toAttrString(table) {
@@ -22,23 +21,16 @@ module.exports = function (req, res, url) {
 
 	var attrs, params, title;
 	switch (url.pathname) {
-	case '/movies/': {
-		let presave = query.movieId && query.movieId.startsWith('m') ? query.movieId :
-				`m-${fUtil[query.noAutosave ? 'getNextFileId' : 'fillNextFileId']('movie-', '.xml')}`;
-		title = 'Your Animation - Vyond';
+	case '/videos/': {
+			title = 'Your Animation - Vyond';
 		attrs = {
 				data: process.env.SWF_URL + '/player.swf',
 				type: 'application/x-shockwave-flash', width: '100%', height: '100%',
 			};
 			params = {
 				flashvars: {
-                                        'bs': 'adam', 'nextUrl': '/yourvideos', 'movieId': '', 'ut': '60',
-					'isWide': '1', 'presaveId': presave, 'page': '', 
-					'apiserver': '/', 'ctc': 'go', 'tlang': 'en_US',
-					'autostart': '1', 'appCode': 'go', 'isEmbed': '1',
-					'storePath': process.env.STORE_URL + '/<store>', 
-					'clientThemePath': process.env.CLIENT_URL + '/<client_theme>',
-					'animationPath': process.env.SWF_URL + '/',
+                                        'apiserver': '/', 'storePath': process.env.STORE_URL + '/<store>', 'ut': 60,
+					'autostart': 1, 'isWide': 1, 'clientThemePath': process.env.CLIENT_URL + '/<client_theme>',
 				},
 
 				allowScriptAccess: 'always',
@@ -340,7 +332,7 @@ loginStatus = AMPLITUDE_EVENT_PROPERTIES.NO;amplitudeTrackEvent(
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "VyondRemastered",
-    "url": "http://localhost:4343/",
+    "url": "https://vyondremastered1.herokuapp.com",
     "logo": "https://gawpstorage.s3.amazonaws.com/img/google_knowledge_graph_logo.jpg",
     "sameAs": [
         "https://www.facebook.com/GoAnimateInc",
@@ -395,7 +387,7 @@ if (self !== top) {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="/yourvideos" title="Vyond">
+                  <a class="navbar-brand" href="http://localhost:4343/pages/html/ga.vyond.com/yourvideos" title="Vyond">
                       <img alt="Vyond" src="https://web.archive.org/web/20220215235646im_/https://d3v4eglovri8yt.cloudfront.net/static/add8e214e09bd155/go/img/vyond/vyond_logo_legacy.png">
                   </a>
             </div>
@@ -418,7 +410,7 @@ if (self !== top) {
     </ul>
 </li>
                     <li>
-                        <a class="hidden-sm hidden-md hidden-lg" href="/videomaker">Make a Video</a>
+                        <a class="hidden-sm hidden-md hidden-lg" href="http://localhost:4343/pages/html/ga.vyond.com/videomaker">Make a Video</a>
                         <span class="site-nav-btn hidden-xs"><a class="btn btn-orange" href="http://localhost:4343/pages/html/ga.vyond.com/videomaker">Make a Video</a></span>
                     </li>
 <li class="dropdown">
@@ -477,7 +469,7 @@ function playerLoaded() {
 };
 jQuery('#playerdiv').flash({
     id: "Player",
-    swf: "${params.flashvars.animationPath}player.swf",
+    swf: "https://localhost:4664/animation/414827163ad4eb60/player.swf",
     height: 539,
     width: 958,
     bgcolor: "#000000",
@@ -553,13 +545,13 @@ jQuery('#player-overlay-dismiss').click(function() {
 <div class="video-top">
 
     <div itemprop="video" itemscope="" itemtype="http://schema.org/VideoObject">
-        <link itemprop="url" href="https://josephanimate2021.github.io/Dhar-Mann-Video-Archives/RUDE CASHIER Won�t Sell To KID - DELETING AFTER 48 HOURS!! | Dhar Mann/styles/vyond/watch">
-        <meta itemprop="name" content="RUDE CASHIER Won�t Sell To KID">
+        <link itemprop="url" href="https://josephanimate2021.github.io/Dhar-Mann-Video-Archives/RUDE CASHIER Won’t Sell To KID - DELETING AFTER 48 HOURS!! | Dhar Mann/styles/vyond/watch">
+        <meta itemprop="name" content="RUDE CASHIER Won’t Sell To KID">
         <meta itemprop="description" content=" SHOP MERCH here: shop.dharmann.com">
         <meta itemprop="duration" content="PT0H0M3S">
-        <meta itemprop="thumbnailUrl" content="https://josephanimate2021.github.io/Dhar-Mann-Video-Archives/RUDE CASHIER Won�t Sell To KID - DELETING AFTER 48 HOURS!! | Dhar Mann/images/5btJhbxqTdY.png">
+        <meta itemprop="thumbnailUrl" content="https://josephanimate2021.github.io/Dhar-Mann-Video-Archives/RUDE CASHIER Won’t Sell To KID - DELETING AFTER 48 HOURS!! | Dhar Mann/images/5btJhbxqTdY.png">
         <meta itemprop="uploadDate" content="2021-12-14T19:37:10-0500">
-        <meta itemprop="embedURL" content="https://josephanimate2021.github.io/Dhar-Mann-Video-Archives/RUDE CASHIER Won�t Sell To KID - DELETING AFTER 48 HOURS!! | Dhar Mann/styles/vyond/embed">
+        <meta itemprop="embedURL" content="https://josephanimate2021.github.io/Dhar-Mann-Video-Archives/RUDE CASHIER Won’t Sell To KID - DELETING AFTER 48 HOURS!! | Dhar Mann/styles/vyond/embed">
         <meta itemprop="playerType" content="HTML5 Flash">
         <meta itemprop="videoQuality" content="HD">
         <meta itemprop="height" content="720">
@@ -579,7 +571,7 @@ jQuery('#player-overlay-dismiss').click(function() {
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button class="close" type="button" data-dismiss="modal" aria-hidden="true">�</button>
+                        <button class="close" type="button" data-dismiss="modal" aria-hidden="true">×</button>
                         <h3 class="modal-title">Your video was autosaved</h3>
                     </div>
                     <div class="modal-body">
@@ -614,7 +606,7 @@ jQuery('#player-overlay-dismiss').click(function() {
             <div class="settings-row">
                     <div class="row">
                         <div class="col-sm-6">
-                            <img class="portrait portrait-tiny img-circle" src="" alt="">
+                            <img class="portrait portrait-tiny img-circle" src="/pages/img/addprofile.jpg" alt="">
                         </div>
                         <div class="col-sm-6 socials-icons">
                             <ul class="socials-sharing">
@@ -765,7 +757,7 @@ jQuery('#player-overlay-dismiss').click(function() {
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button class="close" type="button" data-dismiss="modal" aria-hidden="true">�</button>
+                        <button class="close" type="button" data-dismiss="modal" aria-hidden="true">×</button>
                         <h3 class="modal-title">Your video was autosaved</h3>
                     </div>
                     <div class="modal-body">
@@ -856,7 +848,7 @@ function logAmplitudeEvent(eventName, eventProperties) {
 
 <footer class="site-footer">
     <div class="container">
-        Vyond™ is a trademark of GoAnimate. Inc. ©2019 GoAnimate. Inc. <a href="https://www.vyond.com/terms">Terms of Service</a> | <a href="https://www.vyond.com/privacy">Privacy Policy</a> | <a href="https://www.vyond.com/cookies">Cookies Policy</a>
+        Vyondâ„¢ is a trademark of GoAnimate. Inc. Â©2019 GoAnimate. Inc. <a href="https://www.vyond.com/terms">Terms of Service</a> | <a href="https://www.vyond.com/privacy">Privacy Policy</a> | <a href="https://www.vyond.com/cookies">Cookies Policy</a>
     </div>
 
 </footer>
